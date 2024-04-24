@@ -6,7 +6,7 @@ variablesResolutionMode: 20210326
 
 provider:
   name: aws
-  runtime: python3.8
+  runtime: python3.9
   memorySize: 128 # default was 1024, 512 would also be accepted
   region: us-east-1
   role: IamRoleTeaLambdaExecution
