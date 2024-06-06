@@ -40,8 +40,7 @@ report_code_coverage()
     # https://docs.codecov.com/docs/codecov-uploader
     printf '*****************************************************************\n'
     printf 'Run the unit tests for all subdirectories\n'
-    # docker will require that pip3 forcefully install
-    # pip3 install --break-system-packages coverage
+    # coverage should have already been installed with pip3
     coverage run --source=cmr -m unittest discover
     coverage html
 }
