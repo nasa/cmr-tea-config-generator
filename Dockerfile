@@ -10,7 +10,9 @@ RUN apt-get update && \
 WORKDIR /build
 
 RUN npm install -g serverless
-RUN pip3 install pylint
+RUN pip3 install --break-system-packages pylint
+RUN pip3 install --break-system-packages coverage
+RUN pip3 install --break-system-packages pytest
 
 RUN echo "# Aliases" >> /etc/bash.bashrc
 RUN echo "alias ls='ls --color'" >> /etc/bash.bashrc

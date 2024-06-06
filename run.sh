@@ -40,7 +40,8 @@ report_code_coverage()
     # https://docs.codecov.com/docs/codecov-uploader
     printf '*****************************************************************\n'
     printf 'Run the unit tests for all subdirectories\n'
-    pip3 install coverage
+    # docker will require that pip3 forcefully install
+    # pip3 install --break-system-packages coverage
     coverage run --source=cmr -m unittest discover
     coverage html
 }
@@ -118,7 +119,7 @@ while getopts 'hcCdDe:uUlLjt:orSeIx' opt; do
     U) python3 -m unittest discover -s ./ -p '*test.py' &> test.results.txt ;;
     l) lint ;;
     L) lint &> list.results ;;
-    j) pip3 install pytest ; py.test --junitxml junit.xml ;;
+    j) pip3 install --break-system-packages pytest ; py.test --junitxml junit.xml ;;
     t) token=${OPTARG} ;;
     o) serverless offline ; exit ;;
     r) report_code_coverage ;;
@@ -130,10 +131,10 @@ while getopts 'hcCdDe:uUlLjt:orSeIx' opt; do
       #alternet ways to install serverless, enable as needed
       #npm install -g serverless
       #curl --silent -o- --location https://slss.io/install | bash
-      pip3 install -r requirements.txt 
-      serverless plugin install -n serverless-offline
-      serverless plugin install -n serverless-python-requirements
-      serverless plugin install -n serverless-s3-local
+      pip3 install --break-system-packages -r requirements.txt
+      serverless plugin install --name serverless-offline
+      serverless plugin install --name serverless-python-requirements
+      serverless plugin install --name serverless-s3-local
       ;;
     *) cprintf $RED "option required" ; exit 42 ;;
   esac
