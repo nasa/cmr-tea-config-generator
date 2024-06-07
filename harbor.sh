@@ -46,7 +46,7 @@ help_doc()
   printf "${format}" '-R' '' 'run' 'Run bash in Docker Image'
 }
 
-while getopts 'hcCbrR' opt; do
+while getopts 'hcCbrRd:' opt; do
   case ${opt} in
     h) help_doc ;;
     c) color_mode='yes' ;;

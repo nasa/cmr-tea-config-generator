@@ -9,7 +9,7 @@ RUN apt-get update && \
 
 WORKDIR /build
 
-RUN npm install -g serverless
+RUN npm install -g serverless@3
 RUN pip3 install --break-system-packages pylint
 RUN pip3 install --break-system-packages coverage
 RUN pip3 install --break-system-packages pytest
