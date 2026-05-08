@@ -1,6 +1,8 @@
 # CMR TEA Configuration Generator
 A lambda project to generate [Thin Egress App][teacode] (TEA) configuration files using [Serverless][sls]
 
+**NOTE**: This application is no longer being supported at this time. Please do not deploy.
+
 ## Overrview
 A set of lambda functions to run under the CMR domain name which generate a TEA configuration.
 
